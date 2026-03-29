@@ -233,12 +233,13 @@ p {
     position: relative;
     aspect-ratio: 1;
     width: 100%;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--glass-border);
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(1.25);
-    -webkit-backdrop-filter: blur(16px) saturate(1.25);
-    box-shadow: var(--shadow), 0 0 80px rgba(94, 200, 191, 0.1);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.08), transparent 55%), rgba(255, 255, 255, 0.02);
+    box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(94, 200, 191, 0.08),
+        0 0 70px rgba(94, 200, 191, 0.12);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -257,28 +258,16 @@ p {
     }
 }
 
-.hero-photo-frame::after {
-    content: "Your photo";
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    opacity: 0.45;
-    pointer-events: none;
-    position: absolute;
-}
-
 .hero-photo-frame img {
     position: relative;
     z-index: 1;
-    width: 100%;
+    width: 102%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* keep the whole face visible */
     display: block;
-}
-
-.hero-photo-frame:has(img)::after {
-    display: none;
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+    transform: scale(1.15);
+    transform-origin: 50% 35%;
 }
 
 .hero-copy .hero-badge {
@@ -480,25 +469,6 @@ a.cert-card:focus-visible {
     outline-offset: 3px;
 }
 
-.cert-badge-slot {
-    flex: 0 0 120px;
-    min-height: 120px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.cert-badge-slot::after {
-    content: "Certificate preview";
-    opacity: 0.5;
-}
-
 .cert-body {
     padding: 1.35rem 1.5rem 1.5rem;
     display: flex;
@@ -677,10 +647,8 @@ footer {
                 </div>
             </div>
             <div class="hero-photo-wrap">
-                <div class="hero-photo-frame" aria-label="Profile photo placeholder">
-                    <!-- Drop in a headshot when ready, e.g.:
-                    <img src="images/gaurav-chaudhary.jpg" alt="Portrait of Gaurav Chaudhary" width="600" height="600" />
-                    -->
+                <div class="hero-photo-frame" aria-label="Profile photo">
+                    <img src="photo1.png" alt="Portrait of Gaurav Chaudhary" width="441" height="566" />
                 </div>
             </div>
         </div>
@@ -839,64 +807,71 @@ footer {
     <p class="section-label">Credentials</p>
     <h2>Certifications</h2>
     <p style="margin-bottom: 1.75rem;">
-        Each card keeps room for a certificate image at the top. Replace <code style="color: var(--accent-2); font-size: 0.85em;">REPLACE_FILE_ID</code> in each link with your Google Drive file ID (share the file as “anyone with the link” for viewers).
+        Each card links to a local certificate PDF placed in the same folder as this <code style="color: var(--accent-2); font-size: 0.85em;">index.html</code>.
+        (If a PDF includes spaces in its filename, the link is already URL-encoded.)
     </p>
     <div class="cert-grid">
-        <!-- Google Drive link pattern: https://drive.google.com/file/d/FILE_ID/view?usp=sharing -->
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_GENAI_LEADER/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Generative AI Leader certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
+        <a class="cert-card" href="generative_ai_leader.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Generative AI Leader PDF">
             <div class="cert-body">
-                <h3>Generative AI Leader Certification</h3>
+                <h3>Generative AI Leader</h3>
                 <p class="cert-issuer">Google · Issued Dec 2025 · Expires Dec 2028</p>
                 <p class="cert-desc">Executive-level GenAI credential demonstrating leadership in applying generative AI responsibly at scale.</p>
             </div>
         </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_PROMPTS_PRO/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Start Writing Prompts like a Pro certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
-            <div class="cert-body">
-                <h3>Start Writing Prompts like a Pro</h3>
-                <p class="cert-issuer">Google · Issued Jun 2025</p>
-                <p class="cert-desc">Structured prompt design for reliable outputs, evaluation, and iteration with LLM-powered workflows.</p>
-            </div>
-        </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_GLOBANT_AI/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Globant Enterprise AI Workshop certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
-            <div class="cert-body">
-                <h3>Globant Enterprise AI Workshop</h3>
-                <p class="cert-issuer">Globant · Issued May 2025</p>
-                <p class="cert-desc">Hands-on enterprise AI patterns, transformation narratives, and delivery considerations for global organizations.</p>
-            </div>
-        </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_AI_FOR_EVERYONE/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open AI For Everyone certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
+
+        <a class="cert-card" href="DeepLearningAIforEveryone.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open AI For Everyone PDF">
             <div class="cert-body">
                 <h3>AI For Everyone</h3>
                 <p class="cert-issuer">DeepLearning.AI · Issued Dec 2024</p>
-                <p class="cert-desc">Foundations of AI capabilities, limitations, and how teams adopt AI alongside business strategy.</p>
+                <p class="cert-desc">Foundations of AI capabilities and how teams adopt AI alongside business strategy.</p>
             </div>
         </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_INTRO_AWS/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Introduction to AWS certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
+
+        <a class="cert-card" href="introduction_to_aws.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Introduction to AWS PDF">
             <div class="cert-body">
                 <h3>Introduction to AWS</h3>
                 <p class="cert-issuer">Udemy · Issued Aug 2023</p>
                 <p class="cert-desc">Core cloud concepts and AWS building blocks for scalable, governed architectures.</p>
             </div>
         </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_COLLIBRA_DS/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Collibra Certified Data Scientist certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
+
+        <a class="cert-card" href="collibra_certified_data_scientist.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Collibra Certified Data Scientist PDF">
             <div class="cert-body">
                 <h3>Collibra Certified Data Scientist</h3>
                 <p class="cert-issuer">Collibra · Issued Dec 2024 · Expires Jan 2028</p>
-                <p class="cert-desc">Governed analytics and Collibra-aligned data science practice for enterprise metadata and policy.</p>
+                <p class="cert-desc">Governed analytics practice for enterprise metadata and policy.</p>
             </div>
         </a>
-        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_CSPO/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open CSPO certificate">
-            <div class="cert-badge-slot" aria-hidden="true"></div>
+
+        <a class="cert-card" href="cspo_certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open CSPO PDF">
             <div class="cert-body">
                 <h3>Certified Scrum Product Owner (CSPO)</h3>
                 <p class="cert-issuer">Scrum Alliance</p>
                 <p class="cert-desc">Product ownership in agile delivery — prioritization, stakeholder alignment, and outcome-focused backlog management.</p>
+            </div>
+        </a>
+
+        <a class="cert-card" href="DataScience101_gc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Data Science 101 PDF">
+            <div class="cert-body">
+                <h3>Data Science 101</h3>
+                <p class="cert-issuer">Google Cloud</p>
+                <p class="cert-desc">Credential PDF for foundational data science concepts.</p>
+            </div>
+        </a>
+
+        <a class="cert-card" href="Alation_Data_Quality.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Alation Data Quality PDF">
+            <div class="cert-body">
+                <h3>Data Quality (Alation)</h3>
+                <p class="cert-issuer">Alation</p>
+                <p class="cert-desc">Credential PDF covering governed data quality concepts.</p>
+            </div>
+        </a>
+
+        <a class="cert-card" href="Alation_Get%20To%20Know%20Alation%20Cert.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Get To Know Alation PDF">
+            <div class="cert-body">
+                <h3>Get To Know Alation</h3>
+                <p class="cert-issuer">Alation</p>
+                <p class="cert-desc">Credential PDF for Alation onboarding/enablement.</p>
             </div>
         </a>
     </div>
