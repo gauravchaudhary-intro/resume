@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurav Chaudhary | Data & AI Leader</title>
+<meta name="description" content="Transformational Data & AI Leader — enterprise data governance, GenAI, and capital markets. Pune, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-deep: #0c0f14;
+    --bg-mid: #121826;
+    --accent: #7c9cff;
+    --accent-soft: rgba(124, 156, 255, 0.35);
+    --accent-2: #5ec8bf;
+    --accent-2-soft: rgba(94, 200, 191, 0.35);
+    --accent-warm: #c4a87c;
+    --text: #e8ecf4;
+    --text-muted: #98a3b8;
+    --glass: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-highlight: rgba(255, 255, 255, 0.18);
+    --radius: 18px;
+    --radius-lg: 24px;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+/* Ambient background */
+.bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse 120% 80% at 20% -20%, rgba(124, 156, 255, 0.22), transparent 55%),
+        radial-gradient(ellipse 90% 70% at 100% 15%, rgba(94, 200, 191, 0.14), transparent 52%),
+        radial-gradient(ellipse 90% 70% at 100% 10%, rgba(196, 168, 124, 0.1), transparent 50%),
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(80, 120, 200, 0.08), transparent 45%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+    animation: meshShift 18s ease-in-out infinite alternate;
+}
+
+@keyframes meshShift {
+    0% { filter: hue-rotate(0deg) brightness(1); }
+    100% { filter: hue-rotate(12deg) brightness(1.03); }
+}
+
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 20%, transparent 75%);
+    pointer-events: none;
+}
+
+/* Nav */
+nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
+    padding: 0.55rem 1rem;
+    max-width: calc(100% - 2rem);
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    animation: navIn 0.8s var(--transition) both;
+}
+
+@keyframes navIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.45rem 0.85rem;
+    border-radius: 100px;
+    transition: color 0.25s var(--transition), background 0.25s var(--transition);
+}
+
+nav a:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+nav a:nth-child(even):hover {
+    color: var(--accent-2);
+}
+
+/* Layout */
+section {
+    padding: 5.5rem clamp(1.25rem, 5vw, 4rem) 4rem;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.section-label {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+}
+
+.section-label--alt {
+    color: var(--accent-2);
+}
+
+h1 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(2.35rem, 6vw, 3.35rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #b8c8e8 30%, var(--accent-2) 58%, var(--accent-warm) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(1.65rem, 3.5vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-muted);
+    max-width: 68ch;
+}
+
+/* Glass card */
+.glass-panel {
+    background: var(--glass);
+    backdrop-filter: blur(16px) saturate(1.25);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.65rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.4s var(--transition), border-color 0.35s var(--transition), box-shadow 0.4s var(--transition);
+}
+
+.glass-panel:hover {
+    border-color: var(--glass-highlight);
+    box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(124, 156, 255, 0.1),
+        0 0 48px rgba(94, 200, 191, 0.06);
+}
+
+/* About: hero + photo */
+#about .hero {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, min(300px, 34vw));
+    gap: clamp(1.75rem, 4vw, 3rem);
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+    }
+    .hero-photo-wrap {
+        order: -1;
+        max-width: 280px;
+        margin-inline: auto;
+    }
+}
+
+.hero-photo-wrap {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+}
+
+.hero-photo-frame {
+    position: relative;
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(16px) saturate(1.25);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25);
+    box-shadow: var(--shadow), 0 0 80px rgba(94, 200, 191, 0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeBump 0.95s var(--transition) 0.15s both;
+}
+
+@keyframes fadeBump {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-photo-frame::after {
+    content: "Your photo";
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.45;
+    pointer-events: none;
+    position: absolute;
+}
+
+.hero-photo-frame img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-photo-frame:has(img)::after {
+    display: none;
+}
+
+.hero-copy .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    background: rgba(124, 156, 255, 0.1);
+    border: 1px solid rgba(124, 156, 255, 0.2);
+    width: fit-content;
+    animation: fadeUp 0.9s var(--transition) 0.1s both;
+}
+
+.hero-copy .hero-badge span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-2-soft);
+    animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.92); }
+}
+
+.hero-copy h1 {
+    animation: fadeUp 0.9s var(--transition) 0.15s both;
+}
+
+.hero-copy .lead {
+    font-size: 1.08rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.9s var(--transition) 0.25s both;
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: fadeUp 0.9s var(--transition) 0.35s both;
+}
+
+.hero-stats .glass-panel {
+    flex: 1 1 140px;
+    min-width: 120px;
+    padding: 1rem 1.2rem;
+}
+
+.hero-stats strong {
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.hero-stats .stat-muted {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.about-sub {
+    margin-top: 3.5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Grids */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.25rem;
+}
+
+/* Experience timeline */
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--glass-border);
+    margin-left: 0.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 1.25rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 5px);
+    top: 0.35rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px var(--accent-soft);
+}
+
+.timeline-item:nth-child(even)::before {
+    background: var(--accent-2);
+    box-shadow: 0 0 16px var(--accent-2-soft);
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item .role {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.timeline-item .org {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.timeline-item:nth-child(even) .org {
+    color: var(--accent-2);
+}
+
+.timeline-item .meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0.35rem 0 0.5rem;
+}
+
+.timeline-item p {
+    font-size: 0.92rem;
+}
+
+/* Certifications */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+}
+
+a.cert-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--glass);
+    backdrop-filter: blur(16px) saturate(1.25);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    transition: transform 0.45s var(--transition), border-color 0.35s var(--transition), box-shadow 0.45s var(--transition);
+}
+
+a.cert-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124, 156, 255, 0.35);
+    box-shadow:
+        0 32px 100px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(124, 156, 255, 0.08),
+        0 0 50px rgba(94, 200, 191, 0.06);
+}
+
+a.cert-card:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+}
+
+.cert-badge-slot {
+    flex: 0 0 120px;
+    min-height: 120px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.cert-badge-slot::after {
+    content: "Certificate preview";
+    opacity: 0.5;
+}
+
+.cert-body {
+    padding: 1.35rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cert-body h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+}
+
+.cert-issuer {
+    font-size: 0.82rem;
+    color: var(--accent-2);
+    font-weight: 500;
+    margin-bottom: 0.65rem;
+}
+
+.cert-desc {
+    font-size: 0.88rem;
+    flex: 1;
+    margin: 0;
+}
+
+/* Skills chips */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.skill-chip {
+    font-size: 0.78rem;
+    padding: 0.38rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.skill-chip:nth-child(odd):hover {
+    background: rgba(124, 156, 255, 0.12);
+    border-color: rgba(124, 156, 255, 0.25);
+    color: var(--text);
+}
+
+.skill-chip:nth-child(even):hover {
+    background: rgba(94, 200, 191, 0.12);
+    border-color: rgba(94, 200, 191, 0.28);
+    color: var(--text);
+}
+
+/* Recommendations */
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.25rem;
+}
+
+blockquote {
+    margin: 0;
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.quote-author {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--text);
+}
+
+.quote-author span {
+    display: block;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+/* Contact */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: background 0.25s, transform 0.25s var(--transition), border-color 0.25s;
+}
+
+.contact-links a:first-child {
+    background: rgba(124, 156, 255, 0.12);
+    border: 1px solid rgba(124, 156, 255, 0.25);
+    color: var(--text);
+}
+
+.contact-links a:first-child:hover {
+    background: rgba(124, 156, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+.contact-links a:last-child {
+    background: rgba(94, 200, 191, 0.1);
+    border: 1px solid rgba(94, 200, 191, 0.28);
+    color: var(--text);
+}
+
+.contact-links a:last-child:hover {
+    background: rgba(94, 200, 191, 0.2);
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<nav>
+    <a href="#about">About me</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <p class="section-label">About me</p>
+
+    <div class="hero">
+        <div class="hero-layout">
+            <div class="hero-copy">
+                <div class="hero-badge"><span aria-hidden="true"></span> Senior Director · Globant · Pune, India</div>
+                <h1>Gaurav Chaudhary</h1>
+                <p class="lead">
+                    Transformational Data &amp; AI leader with nearly <strong style="color: var(--text); font-weight: 600;">two decades</strong> in data management,
+                    AI innovation, and capital markets. I have built scalable AI solutions and global data governance programs for major financial institutions—including
+                    acting as a bridge between business, engineering, and onshore teams at scale.
+                </p>
+                <div class="hero-stats">
+                    <div class="glass-panel">
+                        <strong>20+</strong>
+                        <span class="stat-muted">Years in data &amp; analytics</span>
+                    </div>
+                    <div class="glass-panel">
+                        <strong>10k+</strong>
+                        <span class="stat-muted">Assets under governance leadership</span>
+                    </div>
+                    <div class="glass-panel">
+                        <strong>AI</strong>
+                        <span class="stat-muted">GenAI, RAG, prompt systems &amp; strategy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo-wrap">
+                <div class="hero-photo-frame" aria-label="Profile photo placeholder">
+                    <!-- Drop in a headshot when ready, e.g.:
+                    <img src="images/gaurav-chaudhary.jpg" alt="Portrait of Gaurav Chaudhary" width="600" height="600" />
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-sub reveal">
+        <p class="section-label section-label--alt">Career</p>
+        <h2>Experience</h2>
+        <div class="glass-panel" style="padding: 2rem 1.75rem;">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="role">Senior Director</div>
+                    <div class="org">Globant</div>
+                    <div class="meta">Nov 2022 – Present · Pune, Maharashtra · IT services &amp; consulting</div>
+                    <p>Leading data and AI transformation initiatives for global clients; scaling enterprise adoption of intelligent automation and governance-aware AI.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Director, Business Analytics</div>
+                    <div class="org">Exusia, Inc.</div>
+                    <div class="meta">Jul 2020 – Nov 2022 · Pune</div>
+                    <p>Directed analytics delivery and data strategy programs for consulting engagements; research-aligned leadership in complex stakeholder environments.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Managing Consultant</div>
+                    <div class="org">Exusia, Inc.</div>
+                    <div class="meta">Mar 2018 – Jul 2020 · Pune Area</div>
+                    <p>Senior consulting ownership on enterprise data and analytics roadmaps.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Senior Business Analyst, Data Analytics — Global Commercial Banking</div>
+                    <div class="org">HSBC Global Banking and Markets</div>
+                    <div class="meta">Aug 2015 – Apr 2017 · Pune</div>
+                    <p>Facilitated handoffs between onshore and offshore teams; translated business needs into specifications and steady delivery for commercial banking data initiatives.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Product Manager → Assistant Product Manager</div>
+                    <div class="org">Altisource / Altisource India</div>
+                    <div class="meta">Oct 2012 – Jul 2015 · Pune</div>
+                    <p>Product ownership and delivery in real estate technology and servicing ecosystems.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Assistant Manager — IT Business Analysis</div>
+                    <div class="org">Homeward Residential · American Home Mortgage Servicing</div>
+                    <div class="meta">Feb 2010 – Oct 2012 · Pune</div>
+                    <p>Business analysis and IT alignment in mortgage servicing.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Team Leader — IT Business Analysis</div>
+                    <div class="org">American Home Mortgage Servicing</div>
+                    <div class="meta">May 2008 – Oct 2010</div>
+                    <p>Led analysis workstreams supporting servicing operations.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Business Analyst — Team Lead</div>
+                    <div class="org">Option One Mortgage</div>
+                    <div class="meta">May 2007 – May 2008 · Pune</div>
+                    <p>Research-oriented senior analysis in financial services.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Team Leader — Quality Assurance</div>
+                    <div class="org">WNS</div>
+                    <div class="meta">Apr 2006 – May 2007</div>
+                    <p>Senior operations leadership in consulting services delivery.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="role">Business Analyst</div>
+                    <div class="org">E2E Serwiz Solutions Limited</div>
+                    <div class="meta">Feb 2005 – Apr 2006</div>
+                    <p>Specialist-level research and analysis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-sub reveal">
+        <p class="section-label">Academic</p>
+        <h2>Education</h2>
+        <div class="grid">
+            <div class="glass-panel">
+                <h3>MBA — IT Systems &amp; Business Management</h3>
+                <p><strong style="color: var(--accent); font-weight: 500;">Symbiosis Centre for Information Technology</strong></p>
+                <p class="meta" style="margin-top: 0.5rem;">2003 – 2005 · Pune · Full-time program in IT business management</p>
+            </div>
+            <div class="glass-panel">
+                <h3>Bachelor of Computer Science (BCS)</h3>
+                <p><strong style="color: var(--accent-2); font-weight: 500;">Bharati Vidyapeeth</strong></p>
+                <p class="meta" style="margin-top: 0.5rem;">2000 – 2003</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-sub reveal">
+        <p class="section-label section-label--alt">Expertise</p>
+        <h2>Skills</h2>
+        <div class="glass-panel">
+            <p>Core strengths across governance, analytics delivery, and AI-enabled transformation.</p>
+            <div class="skills" aria-label="Skills">
+                <span class="skill-chip">Data governance</span>
+                <span class="skill-chip">GenAI &amp; LLMs</span>
+                <span class="skill-chip">RAG &amp; prompt engineering</span>
+                <span class="skill-chip">Business analytics</span>
+                <span class="skill-chip">Data strategy</span>
+                <span class="skill-chip">Capital markets exposure</span>
+                <span class="skill-chip">Commercial banking</span>
+                <span class="skill-chip">Quality assurance</span>
+                <span class="skill-chip">Product &amp; analysis</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-sub reveal">
+        <p class="section-label">Colleagues</p>
+        <h2>Recommendations</h2>
+        <div class="quote-grid">
+            <div class="glass-panel">
+                <blockquote>
+                    “Gaurav provided a vital role at HSBC, acting as the glue between onshore and offshore teams. He facilitated handovers, translated business requirements into design specifications, and always made himself available for problem solving. Always professional, warm and an excellent host for visiting colleagues — it was a pleasure working with Gaurav.”
+                </blockquote>
+                <p class="quote-author">Paul Stainsby <span>HSBC collaboration</span></p>
+            </div>
+            <div class="glass-panel">
+                <blockquote>
+                    “Gaurav tries to work beyond the limit… full of enthusiasm and innovative ideas… takes ownership… drives the problem to the solution very well… always an asset to the organisation and great human being.”
+                </blockquote>
+                <p class="quote-author">Yogesh Mandre <span>Former colleague</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="reveal">
+    <p class="section-label">Portfolio</p>
+    <h2>Projects</h2>
+    <p style="margin-bottom: 1.5rem;">Representative initiatives spanning data governance, AI augmentation, and delivery at enterprise scale.</p>
+    <div class="grid">
+        <div class="glass-panel">
+            <h3>AI data dictionary &amp; semantic mapping</h3>
+            <p>Prompt-driven workflows to interpret legacy datasets, produce semantic mappings, and shorten onboarding for analysts and engineers.</p>
+        </div>
+        <div class="glass-panel">
+            <h3>AI classification for governed assets</h3>
+            <p>Automation for classifying structured and unstructured data assets to strengthen metadata, compliance, and findability.</p>
+        </div>
+        <div class="glass-panel">
+            <h3>AI-augmented lineage</h3>
+            <p>Embedded intelligence in lineage workflows to cut manual effort materially (including deployments with ~50% manual reduction).</p>
+        </div>
+        <div class="glass-panel">
+            <h3>Enterprise data governance platform</h3>
+            <p>Program leadership across very large catalogs — on the order of tens of thousands of assets and datasets — with consistent standards and operating models.</p>
+        </div>
+    </div>
+</section>
+
+<section id="certifications" class="reveal">
+    <p class="section-label">Credentials</p>
+    <h2>Certifications</h2>
+    <p style="margin-bottom: 1.75rem;">
+        Each card keeps room for a certificate image at the top. Replace <code style="color: var(--accent-2); font-size: 0.85em;">REPLACE_FILE_ID</code> in each link with your Google Drive file ID (share the file as “anyone with the link” for viewers).
+    </p>
+    <div class="cert-grid">
+        <!-- Google Drive link pattern: https://drive.google.com/file/d/FILE_ID/view?usp=sharing -->
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_GENAI_LEADER/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Generative AI Leader certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Generative AI Leader Certification</h3>
+                <p class="cert-issuer">Google · Issued Dec 2025 · Expires Dec 2028</p>
+                <p class="cert-desc">Executive-level GenAI credential demonstrating leadership in applying generative AI responsibly at scale.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_PROMPTS_PRO/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Start Writing Prompts like a Pro certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Start Writing Prompts like a Pro</h3>
+                <p class="cert-issuer">Google · Issued Jun 2025</p>
+                <p class="cert-desc">Structured prompt design for reliable outputs, evaluation, and iteration with LLM-powered workflows.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_GLOBANT_AI/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Globant Enterprise AI Workshop certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Globant Enterprise AI Workshop</h3>
+                <p class="cert-issuer">Globant · Issued May 2025</p>
+                <p class="cert-desc">Hands-on enterprise AI patterns, transformation narratives, and delivery considerations for global organizations.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_AI_FOR_EVERYONE/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open AI For Everyone certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>AI For Everyone</h3>
+                <p class="cert-issuer">DeepLearning.AI · Issued Dec 2024</p>
+                <p class="cert-desc">Foundations of AI capabilities, limitations, and how teams adopt AI alongside business strategy.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_INTRO_AWS/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Introduction to AWS certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Introduction to AWS</h3>
+                <p class="cert-issuer">Udemy · Issued Aug 2023</p>
+                <p class="cert-desc">Core cloud concepts and AWS building blocks for scalable, governed architectures.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_COLLIBRA_DS/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Collibra Certified Data Scientist certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Collibra Certified Data Scientist</h3>
+                <p class="cert-issuer">Collibra · Issued Dec 2024 · Expires Jan 2028</p>
+                <p class="cert-desc">Governed analytics and Collibra-aligned data science practice for enterprise metadata and policy.</p>
+            </div>
+        </a>
+        <a class="cert-card" href="https://drive.google.com/file/d/REPLACE_FILE_ID_CSPO/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open CSPO certificate">
+            <div class="cert-badge-slot" aria-hidden="true"></div>
+            <div class="cert-body">
+                <h3>Certified Scrum Product Owner (CSPO)</h3>
+                <p class="cert-issuer">Scrum Alliance</p>
+                <p class="cert-desc">Product ownership in agile delivery — prioritization, stakeholder alignment, and outcome-focused backlog management.</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section id="contact" class="reveal contact">
+    <p class="section-label section-label--alt">Connect</p>
+    <h2>Contact</h2>
+    <div class="glass-panel">
+        <p>Best reached on LinkedIn or by email.</p>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/gauravchaudhary/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+            <a href="mailto:gaurav9333@outlook.com">gaurav9333@outlook.com</a>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.88rem;"><strong style="color: var(--text);">Languages:</strong> English — native or bilingual · Hindi — professional working proficiency</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Gaurav Chaudhary · Resume website
+</footer>
+
+<script>
+(function () {
+    var nodes = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+        nodes.forEach(function (el) { el.classList.add('visible'); });
+        return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    nodes.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
